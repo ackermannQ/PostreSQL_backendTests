@@ -1,1 +1,0 @@
-insert into users(userName , userPassword) values('Ackermann', 'oui');
