@@ -9,12 +9,14 @@ public class User {
     private final UUID id;
     private String userName;
     private String userPassword;
+    private String userType;
 
     public User(@JsonProperty("id") UUID id, @JsonProperty("username") String userName,
-                @JsonProperty("password") String userPassword) {
+                @JsonProperty("password") String userPassword, @JsonProperty("userType") String userType) {
         this.id = id;
         this.userName = userName;
         this.userPassword = userPassword;
+        this.userType = userType;
     }
 
     public UUID getId() {
@@ -27,6 +29,10 @@ public class User {
 
     public String getUserPassword() {
         return userPassword;
+    }
+
+    public String getUserType() {
+        return userType;
     }
 
 }

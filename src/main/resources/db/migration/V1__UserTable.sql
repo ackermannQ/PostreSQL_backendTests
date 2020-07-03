@@ -1,6 +1,6 @@
-CREATE TABLE user (
+CREATE TABLE usertable (
     id UUID NOT NULL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
+    username VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
     userType VARCHAR(100) NOT NULL
 );
