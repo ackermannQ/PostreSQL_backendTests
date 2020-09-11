@@ -1,6 +1,5 @@
 package com.lunchz.dao;
 
-import com.lunchz.dao.UserDao;
 import com.lunchz.model.User;
 import org.springframework.stereotype.Repository;
 
@@ -16,7 +15,7 @@ public class FakePersonDataAccessService implements UserDao {
 
     @Override
     public int insertUser(UUID id, User user) {
-        DB.add(new User(id, user.getUserName(), user.getUserPassword()));
+        DB.add(new User(id, user.getUserName(), user.getUserPassword(), user.getUserType()));
         return 1;
     }
 
@@ -48,7 +47,7 @@ public class FakePersonDataAccessService implements UserDao {
                 .map(user -> {
                     int indexOfUserToUpdate = DB.indexOf(user);
                     if (indexOfUserToUpdate >= 0) {
-                        DB.set(indexOfUserToUpdate, new User(id, update.getUserName(), update.getUserPassword()));
+                        DB.set(indexOfUserToUpdate, new User(id, update.getUserName(), update.getUserPassword(), update.getUserType()));
                         return 1;
                     }
                     return 0;

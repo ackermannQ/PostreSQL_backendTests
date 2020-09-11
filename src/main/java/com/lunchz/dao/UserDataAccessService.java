@@ -27,12 +27,12 @@ public class UserDataAccessService implements UserDao {
     @Override
     public List<User> selectAllUser() {
         final String sql = "SELECT id, username, password, userType FROM usertable;";
-        jdbcTemplate.query(sql, (resultSet, i) -> {
+        List<User> users = jdbcTemplate.query(sql, (resultSet, i) -> {
           return new User(
                   UUID.fromString(resultSet.getString("id")), resultSet.getString("username"),
                   resultSet.getString("password"), resultSet.getString("userType"));
-          return new User(id, username, password, userType);
         });
+        return users;
     }
 
     @Override
